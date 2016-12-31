@@ -1,0 +1,74 @@
+{
+  "project": {
+    "projectSettingsVersion": "3.0.0",
+    "currentBuildConfiguration": null,
+    "projectFiles": {},
+    "projectDirectories": {}
+  },
+  "editorTab": {
+    "currentEditorMode": 0
+  },
+  "iot-tab": {
+    "fileStatus": {
+      ".gitignore": {
+        "previousModTime": 1483161186923,
+        "modified": 1483161186923,
+        "seen": true,
+        "name": ".gitignore"
+      },
+      "icon.png": {
+        "previousModTime": 1483161186923,
+        "modified": 1483161186923,
+        "seen": true,
+        "name": "icon.png"
+      },
+      "LICENSE.md": {
+        "previousModTime": 1483161186923,
+        "modified": 1483161186923,
+        "seen": true,
+        "name": "LICENSE.md"
+      },
+      "main.js": {
+        "previousModTime": 1483163323475,
+        "modified": 1483163323475,
+        "seen": true,
+        "name": "main.js"
+      },
+      "package.json": {
+        "previousModTime": 1483162741788,
+        "modified": 1483162741788,
+        "seen": true,
+        "name": "package.json"
+      },
+      "pawsiot.xdk": {
+        "previousModTime": 1483161188239,
+        "modified": 1483161188239,
+        "seen": true,
+        "name": "pawsiot.xdk"
+      },
+      "pawsiot.xdke": {
+        "previousModTime": 1483163156853,
+        "modified": 1483163156853,
+        "seen": true,
+        "name": "pawsiot.xdke"
+      },
+      "README.md": {
+        "previousModTime": 1483161186923,
+        "modified": 1483161186923,
+        "seen": true,
+        "name": "README.md"
+      },
+      "xdk/project-info.json": {
+        "previousModTime": 1483161187711,
+        "modified": 1483161187711,
+        "seen": true,
+        "name": "xdk/project-info.json"
+      }
+    },
+    "boardFileStatus": {
+      "main.js": {
+        "previousModTime": 1483163327187
+      }
+    }
+  }
+}
