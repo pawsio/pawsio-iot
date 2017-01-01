@@ -41,22 +41,24 @@ function main() {
     if(!token) userApi.signin(user).then(res => { token = res.token; });
     else {
         //check if pet belongs to owner if not add him
-        petsApi.getAll(token).then(res => {
-            console.log(res);
-            let petIndex = -1;
-            res.pets.some((element, index) => {
-                console.log(element);
-                if (element.name === pet.name) {
-                    petIndex = index;
-                    return true;
-                };
-            });
-            if (petIndex !== -1) console.log('pet exists');
-            else petsApi.addPet(token, pet);
-        });
+        petsApi.getAll(token)
+            .then(res => {
+                let petIndex = -1;
+            
+                res.pets.forEach((element, index) => {
+                    if (element.name === pet.name) petIndex = index;
+                });
+
+                if (petIndex !== -1) return 'pet exists';
+                else return petsApi.addPet(token, pet);
+            })
+            .then(data => {
+                console.log(data);
+            })
+            .catch(err => console.error(err));
     };
 
     console.log(convertTemp(tempSensor.value()));  
 };
 
-setInterval(main, 5000);
+setInterval(main, 7500);
