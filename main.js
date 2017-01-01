@@ -16,30 +16,22 @@
 
 'use strict' ;
 
+const mraa = require('mraa');
+const testApi = require('./lib/test-api');
+const convertTemp = require('./lib/convert-temp');
 
-var mraa = require('mraa');
-var XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
-var xmlHttp = new XMLHttpRequest();
-var url = 'https://pawsio.herokuapp.com/api/tests';
+
+//parent for all grove sensors
+const groveSensor = require('jsupm_grove');
+const tempSensor = new groveSensor.GroveTemp(0);
+let token = '';
 
 // add any UPM requires that you need
 // and the rest of your app goes here
 // see the samples for more detailed examples
 
-// console.log(mraa) ;     // prints mraa object to XDK IoT debug output panel
-
-console.log('hi');
-
-xmlHttp.onreadystatechange = () => {//Call a function when the state changes.
-    if(xmlHttp.readyState === 4) {
-        console.log(xmlHttp.responseText);
-        console.log('GET Success!!');
-    } else {
-        console.log('GET Failed. Http status: ' + xmlHttp.status);
-    };
+function main() {
+  console.log(convertTemp(tempSensor.value()));  
 };
 
-xmlHttp.open('GET', url, true);
-xmlHttp.send(null);
-//Send the proper header information along with the request
-//http.setRequestHeader('Content-Type', 'application/json');
+setInterval(main, 2000);

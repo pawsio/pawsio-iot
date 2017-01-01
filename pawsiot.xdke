@@ -11,8 +11,8 @@
   "iot-tab": {
     "fileStatus": {
       ".gitignore": {
-        "previousModTime": 1483161186923,
-        "modified": 1483161186923,
+        "previousModTime": 1483163636561,
+        "modified": 1483163636561,
         "seen": true,
         "name": ".gitignore"
       },
@@ -29,14 +29,14 @@
         "name": "LICENSE.md"
       },
       "main.js": {
-        "previousModTime": 1483163323475,
-        "modified": 1483163323475,
+        "previousModTime": 1483230489512,
+        "modified": 1483230489512,
         "seen": true,
         "name": "main.js"
       },
       "package.json": {
-        "previousModTime": 1483162741788,
-        "modified": 1483162741788,
+        "previousModTime": 1483228130165,
+        "modified": 1483228130165,
         "seen": true,
         "name": "package.json"
       },
@@ -47,8 +47,8 @@
         "name": "pawsiot.xdk"
       },
       "pawsiot.xdke": {
-        "previousModTime": 1483163156853,
-        "modified": 1483163156853,
+        "previousModTime": 1483230063011,
+        "modified": 1483230063011,
         "seen": true,
         "name": "pawsiot.xdke"
       },
@@ -63,11 +63,35 @@
         "modified": 1483161187711,
         "seen": true,
         "name": "xdk/project-info.json"
+      },
+      "lib/test-api.js": {
+        "previousModTime": 1483229887160,
+        "modified": 1483229887160,
+        "seen": true,
+        "name": "lib/test-api.js"
       }
     },
     "boardFileStatus": {
+      "icon.png": {
+        "previousModTime": 1483230788065
+      },
+      "LICENSE.md": {
+        "previousModTime": 1483230788065
+      },
       "main.js": {
-        "previousModTime": 1483163327187
+        "previousModTime": 1483230788065
+      },
+      "package.json": {
+        "previousModTime": 1483230788065
+      },
+      "README.md": {
+        "previousModTime": 1483230788065
+      },
+      "xdk/project-info.json": {
+        "previousModTime": 1483230788065
+      },
+      "lib/test-api.js": {
+        "previousModTime": 1483230788065
       }
     }
   }
