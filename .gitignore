@@ -54,3 +54,7 @@ DS_Store
 .vscode
 .env
 .json
+
+# info related to iot and user
+lib/userinfo.js
+lib/petinfo.js
