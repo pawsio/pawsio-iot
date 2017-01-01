@@ -18,20 +18,47 @@
 
 const mraa = require('mraa');
 const testApi = require('./lib/test-api');
+const userApi = require('./lib/users-api');
+const petsApi = require('./lib/pets-api');
 const convertTemp = require('./lib/convert-temp');
 
+// TODO: I think for our purposes we assume user already signed up with our service
+
+const user = require('./lib/userinfo');
+const pet = require('./lib/petinfo');
+let token = '';
 
 //parent for all grove sensors
 const groveSensor = require('jsupm_grove');
 const tempSensor = new groveSensor.GroveTemp(0);
-let token = '';
 
 // add any UPM requires that you need
 // and the rest of your app goes here
 // see the samples for more detailed examples
 
 function main() {
-  console.log(convertTemp(tempSensor.value()));  
+    // first check token
+    if(!token) userApi.signin(user).then(res => { token = res.token; });
+    else {
+        //check if pet belongs to owner if not add him
+        petsApi.getAll(token)
+            .then(res => {
+                let petIndex = -1;
+            
+                res.pets.forEach((element, index) => {
+                    if (element.name === pet.name) petIndex = index;
+                });
+
+                if (petIndex !== -1) return 'pet exists';
+                else return petsApi.addPet(token, pet);
+            })
+            .then(data => {
+                console.log(data);
+            })
+            .catch(err => console.error(err));
+    };
+
+    console.log(convertTemp(tempSensor.value()));  
 };
 
-setInterval(main, 2000);
+setInterval(main, 7500);
