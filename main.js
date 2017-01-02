@@ -20,6 +20,7 @@ const mraa = require('mraa');
 const testApi = require('./lib/api/test-api');
 const userApi = require('./lib/api/users-api');
 const petsApi = require('./lib/api/pets-api');
+const petSnapShotApi = require('./lib/api/pet-snapshots-api');
 const convertTemp = require('./lib/helper/convert-temp');
 
 // TODO: I think for our purposes we assume user already signed up with our service
