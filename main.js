@@ -36,9 +36,10 @@ const tempSensor = new groveSensor.GroveTemp(0);
 // and the rest of your app goes here
 // see the samples for more detailed examples
 
+
 function main() {
     // first check token
-    if(!token) userApi.signin(user).then(res => { token = res.token; });
+    if(!token) return userApi.signin(user).then(res => { token = res.token; });
     else {
         //check if pet belongs to owner if not add him
         petsApi.getAll(token)
