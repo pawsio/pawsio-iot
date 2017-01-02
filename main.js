@@ -17,15 +17,15 @@
 'use strict' ;
 
 const mraa = require('mraa');
-const testApi = require('./lib/test-api');
-const userApi = require('./lib/users-api');
-const petsApi = require('./lib/pets-api');
-const convertTemp = require('./lib/convert-temp');
+const testApi = require('./lib/api/test-api');
+const userApi = require('./lib/api/users-api');
+const petsApi = require('./lib/api/pets-api');
+const convertTemp = require('./lib/helper/convert-temp');
 
 // TODO: I think for our purposes we assume user already signed up with our service
 
-const user = require('./lib/userinfo');
-const pet = require('./lib/petinfo');
+const user = require('./lib/setup/userinfo');
+const pet = require('./lib/setup/petinfo');
 let token = '';
 
 //parent for all grove sensors
