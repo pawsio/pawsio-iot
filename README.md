@@ -1,4 +1,4 @@
-Intel® XDK IoT PetsIO Node.js\* App Template
+Intel® XDK IoT PawsIO Node.js\* App Template
 ===========================================
 See [LICENSE.md](LICENSE.md) for license terms and conditions.
 
