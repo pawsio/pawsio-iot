@@ -56,5 +56,5 @@ DS_Store
 .json
 
 # info related to iot and user
-lib/userinfo.js
-lib/petinfo.js
+lib/setup/userinfo.js
+lib/setup/petinfo.js
