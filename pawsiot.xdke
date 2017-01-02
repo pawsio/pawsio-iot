@@ -11,8 +11,8 @@
   "iot-tab": {
     "fileStatus": {
       ".gitignore": {
-        "previousModTime": 1483163636561,
-        "modified": 1483163636561,
+        "previousModTime": 1483323607641,
+        "modified": 1483323607641,
         "seen": true,
         "name": ".gitignore"
       },
@@ -29,14 +29,14 @@
         "name": "LICENSE.md"
       },
       "main.js": {
-        "previousModTime": 1483230489512,
-        "modified": 1483230489512,
+        "previousModTime": 1483336206599,
+        "modified": 1483336206599,
         "seen": true,
         "name": "main.js"
       },
       "package.json": {
-        "previousModTime": 1483228130165,
-        "modified": 1483228130165,
+        "previousModTime": 1483254617039,
+        "modified": 1483254617039,
         "seen": true,
         "name": "package.json"
       },
@@ -47,8 +47,8 @@
         "name": "pawsiot.xdk"
       },
       "pawsiot.xdke": {
-        "previousModTime": 1483230063011,
-        "modified": 1483230063011,
+        "previousModTime": 1483336236574,
+        "modified": 1483336236574,
         "seen": true,
         "name": "pawsiot.xdke"
       },
@@ -69,30 +69,68 @@
         "modified": 1483229887160,
         "seen": true,
         "name": "lib/test-api.js"
+      },
+      ".env": {
+        "previousModTime": 1483249431499,
+        "modified": 1483249431499,
+        "seen": true,
+        "name": ".env"
+      },
+      ".eslintrc": {
+        "previousModTime": 1483254616991,
+        "modified": 1483254616991,
+        "seen": true,
+        "name": ".eslintrc"
+      },
+      "lib/get-data.js": {
+        "previousModTime": 1483335581999,
+        "modified": 1483335581999,
+        "seen": true,
+        "name": "lib/get-data.js"
+      },
+      "lib/api/pets-api.js": {
+        "previousModTime": 1483332226066,
+        "modified": 1483332226066,
+        "seen": true,
+        "name": "lib/api/pets-api.js"
+      },
+      "lib/api/pet-snapshots-api.js": {
+        "previousModTime": 1483336106574,
+        "modified": 1483336106574,
+        "seen": true,
+        "name": "lib/api/pet-snapshots-api.js"
+      },
+      "lib/api/test-api.js": {
+        "previousModTime": 1483332241306,
+        "modified": 1483332241306,
+        "seen": true,
+        "name": "lib/api/test-api.js"
+      },
+      "lib/api/users-api.js": {
+        "previousModTime": 1483332258710,
+        "modified": 1483332258710,
+        "seen": true,
+        "name": "lib/api/users-api.js"
+      },
+      "lib/helper/convert-temp.js": {
+        "previousModTime": 1483323607641,
+        "modified": 1483323607641,
+        "seen": true,
+        "name": "lib/helper/convert-temp.js"
+      },
+      "lib/setup/petinfo.js": {
+        "previousModTime": 1483323607641,
+        "modified": 1483323607641,
+        "seen": true,
+        "name": "lib/setup/petinfo.js"
+      },
+      "lib/setup/userinfo.js": {
+        "previousModTime": 1483323607641,
+        "modified": 1483323607641,
+        "seen": true,
+        "name": "lib/setup/userinfo.js"
       }
     },
-    "boardFileStatus": {
-      "icon.png": {
-        "previousModTime": 1483230788065
-      },
-      "LICENSE.md": {
-        "previousModTime": 1483230788065
-      },
-      "main.js": {
-        "previousModTime": 1483230788065
-      },
-      "package.json": {
-        "previousModTime": 1483230788065
-      },
-      "README.md": {
-        "previousModTime": 1483230788065
-      },
-      "xdk/project-info.json": {
-        "previousModTime": 1483230788065
-      },
-      "lib/test-api.js": {
-        "previousModTime": 1483230788065
-      }
-    }
+    "boardFileStatus": {}
   }
 }
