@@ -14,51 +14,55 @@
 /* jslint node:true */
 /* jshint unused:true */
 
-'use strict' ;
+'use strict';
 
 const mraa = require('mraa');
-const testApi = require('./lib/test-api');
-const userApi = require('./lib/users-api');
-const petsApi = require('./lib/pets-api');
-const convertTemp = require('./lib/convert-temp');
+const testApi = require('./lib/api/test-api');
+const userApi = require('./lib/api/users-api');
+const petsApi = require('./lib/api/pets-api');
+const petSnapShotApi = require('./lib/api/pet-snapshots-api');
+const getData = require('./lib/get-data')();
 
 // TODO: I think for our purposes we assume user already signed up with our service
 
-const user = require('./lib/userinfo');
-const pet = require('./lib/petinfo');
+const user = require('./lib/setup/userinfo');
+const pet = require('./lib/setup/petinfo');
 let token = '';
-
-//parent for all grove sensors
-const groveSensor = require('jsupm_grove');
-const tempSensor = new groveSensor.GroveTemp(0);
-
-// add any UPM requires that you need
-// and the rest of your app goes here
-// see the samples for more detailed examples
+let petId = '';
 
 function main() {
     // first check token
-    if(!token) userApi.signin(user).then(res => { token = res.token; });
-    else {
-        //check if pet belongs to owner if not add him
-        petsApi.getAll(token)
-            .then(res => {
-                let petIndex = -1;
-            
-                res.pets.forEach((element, index) => {
-                    if (element.name === pet.name) petIndex = index;
-                });
-
-                if (petIndex !== -1) return 'pet exists';
-                else return petsApi.addPet(token, pet);
-            })
-            .then(data => {
-                console.log(data);
-            })
-            .catch(err => console.error(err));
+    if(!token) {
+        return userApi
+                    .signin(user)
+                    .then(res => { token = res.token; })
+                    .catch(err => console.error(err));
     };
+    // next check for the pets id
+    console.log('token', token);
+    if(!petId) {
+        let qstring = `?name=${pet.name}&owner=${user.username}&animal=${pet.animal}`;
+        return petsApi
+                    .getQstring(token, qstring)
+                    .then(res => {
+                        if (res.length === 0) return petsApi.addPet(token, pet);
+                        else petId = res[0]._id; 
+                    })
+                    .catch(err => console.error(err));
+    };
+    console.log('petId', petId);
 
-    console.log(convertTemp(tempSensor.value()));  
+    // collect data and post to page
+    getData()
+        .then(payload => {
+            payload.name = pet.name;
+            return petSnapShotApi.post(token, petId, payload);
+        })
+        .then(res => {
+            console.log(res);
+            console.log('upload good!');
+        })
+        .catch(err => console.error(err));
 };
 
 setInterval(main, 7500);
