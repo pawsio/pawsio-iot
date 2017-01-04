@@ -11,56 +11,56 @@
   "iot-tab": {
     "fileStatus": {
       ".gitignore": {
-        "previousModTime": 1483378438000,
-        "modified": 1483378438000,
+        "previousModTime": 1483336740086,
+        "modified": 1483336740086,
         "seen": true,
         "name": ".gitignore"
       },
       "icon.png": {
-        "previousModTime": 1483378438000,
-        "modified": 1483378438000,
+        "previousModTime": 1483161186923,
+        "modified": 1483161186923,
         "seen": true,
         "name": "icon.png"
       },
       "LICENSE.md": {
-        "previousModTime": 1483378438000,
-        "modified": 1483378438000,
+        "previousModTime": 1483161186923,
+        "modified": 1483161186923,
         "seen": true,
         "name": "LICENSE.md"
       },
       "main.js": {
-        "previousModTime": 1483473282000,
-        "modified": 1483473282000,
+        "previousModTime": 1483489109858,
+        "modified": 1483489109858,
         "seen": true,
         "name": "main.js"
       },
       "package.json": {
-        "previousModTime": 1483378438000,
-        "modified": 1483378438000,
+        "previousModTime": 1483254617039,
+        "modified": 1483254617039,
         "seen": true,
         "name": "package.json"
       },
       "pawsiot.xdk": {
-        "previousModTime": 1483467646000,
-        "modified": 1483467646000,
+        "previousModTime": 1483161188239,
+        "modified": 1483161188239,
         "seen": true,
         "name": "pawsiot.xdk"
       },
       "pawsiot.xdke": {
-        "previousModTime": 1483473562000,
-        "modified": 1483473562000,
+        "previousModTime": 1483489476309,
+        "modified": 1483489476309,
         "seen": true,
         "name": "pawsiot.xdke"
       },
       "README.md": {
-        "previousModTime": 1483378438000,
-        "modified": 1483378438000,
+        "previousModTime": 1483336924223,
+        "modified": 1483336924223,
         "seen": true,
         "name": "README.md"
       },
       "xdk/project-info.json": {
-        "previousModTime": 1483378438000,
-        "modified": 1483378438000,
+        "previousModTime": 1483161187711,
+        "modified": 1483161187711,
         "seen": true,
         "name": "xdk/project-info.json"
       },
@@ -77,60 +77,94 @@
         "name": ".env"
       },
       ".eslintrc": {
-        "previousModTime": 1483378438000,
-        "modified": 1483378438000,
+        "previousModTime": 1483254616991,
+        "modified": 1483254616991,
         "seen": true,
         "name": ".eslintrc"
       },
       "lib/get-data.js": {
-        "previousModTime": 1483378438000,
-        "modified": 1483378438000,
+        "previousModTime": 1483489306622,
+        "modified": 1483489306622,
         "seen": true,
         "name": "lib/get-data.js"
       },
       "lib/api/pets-api.js": {
-        "previousModTime": 1483378438000,
-        "modified": 1483378438000,
+        "previousModTime": 1483336740086,
+        "modified": 1483336740086,
         "seen": true,
         "name": "lib/api/pets-api.js"
       },
       "lib/api/pet-snapshots-api.js": {
-        "previousModTime": 1483378438000,
-        "modified": 1483378438000,
+        "previousModTime": 1483336740086,
+        "modified": 1483336740086,
         "seen": true,
         "name": "lib/api/pet-snapshots-api.js"
       },
       "lib/api/test-api.js": {
-        "previousModTime": 1483378438000,
-        "modified": 1483378438000,
+        "previousModTime": 1483336740086,
+        "modified": 1483336740086,
         "seen": true,
         "name": "lib/api/test-api.js"
       },
       "lib/api/users-api.js": {
-        "previousModTime": 1483378438000,
-        "modified": 1483378438000,
+        "previousModTime": 1483336740086,
+        "modified": 1483336740086,
         "seen": true,
         "name": "lib/api/users-api.js"
       },
       "lib/helper/convert-temp.js": {
-        "previousModTime": 1483378438000,
-        "modified": 1483378438000,
+        "previousModTime": 1483336740090,
+        "modified": 1483336740090,
         "seen": true,
         "name": "lib/helper/convert-temp.js"
       },
       "lib/setup/petinfo.js": {
-        "previousModTime": 1483398050000,
-        "modified": 1483398050000,
+        "previousModTime": 1483323607641,
+        "modified": 1483323607641,
         "seen": true,
         "name": "lib/setup/petinfo.js"
       },
       "lib/setup/userinfo.js": {
-        "previousModTime": 1483398078000,
-        "modified": 1483398078000,
+        "previousModTime": 1483323607641,
+        "modified": 1483323607641,
         "seen": true,
         "name": "lib/setup/userinfo.js"
+      },
+      "lib/rotary.js": {
+        "previousModTime": 1483477556000,
+        "modified": 1483477556000,
+        "seen": true,
+        "name": "lib/rotary.js"
+      },
+      "lib/accelerometer.js": {
+        "previousModTime": 1483489584213,
+        "modified": 1483489584213,
+        "seen": true,
+        "name": "lib/accelerometer.js"
+      },
+      "lib/thermometer.js": {
+        "previousModTime": 1483487145481,
+        "modified": 1483487145481,
+        "seen": true,
+        "name": "lib/thermometer.js"
+      },
+      "lib/helper/round-number.js": {
+        "previousModTime": 1483489430001,
+        "modified": 1483489430001,
+        "seen": true,
+        "name": "lib/helper/round-number.js"
+      },
+      "lib/helper/vector-length.js": {
+        "previousModTime": 1483486336995,
+        "modified": 1483486336995,
+        "seen": true,
+        "name": "lib/helper/vector-length.js"
       }
     },
-    "boardFileStatus": {}
+    "boardFileStatus": {
+      "lib/accelerometer.js": {
+        "previousModTime": 1483489593531
+      }
+    }
   }
 }
