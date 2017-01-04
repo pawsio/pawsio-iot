@@ -72,7 +72,7 @@ function main() {
         .catch(err => console.error(err));
 };
 
-setInterval(main, 500);
+setInterval(main, 2000);
 
 
 
