@@ -1,8 +1,9 @@
 /*
- * Blank IoT Node.js starter app.
+ * Paws IO Node.js starter app.
  *
- * Use this template to start an IoT Node.js app on any supported IoT board.
- * The target board must support Node.js. It is helpful if the board includes
+ * This code based on a Node.js template provided by Intel XDK and
+ * can be used on any Node.js supported IoT board.
+ * It is helpful if the board includes
  * support for I/O access via the MRAA and UPM libraries.
  *
  * https://software.intel.com/en-us/xdk/docs/lp-xdk-iot
@@ -20,6 +21,7 @@ const mraa = require('mraa'); // eslint-disable-line
 const userApi = require('./lib/api/users-api');
 const petsApi = require('./lib/api/pets-api');
 const petSnapShotApi = require('./lib/api/pet-snapshots-api');
+const checkInternet = require('./lib/helper/check-internet');
 const getData = require('./lib/get-data')();
 const rotary = require('./lib/rotary')();
 
@@ -34,33 +36,39 @@ let dataPayload = [];
 function main() {
     // if rotary is negative and no payload, short-circuit
     // if rotary is negative but have payload, check later whether we push
-    if(rotary() < 0) {
+    let rotarCurr = rotary();
+    console.log(rotarCurr);
+    if(rotarCurr < 0) {
+        // if you have data to send, send it and then empty array
         if(dataPayload.length) {
-            return petSnapShotApi.post(token, petId, {
-                dataPayload,
-                name: pet.name
-            }).then(res => {
-                dataPayload = [];
-                console.log('res: ', res);
-                console.log('upload success');
-            }).catch(err => {
-                console.error(err);
-            });
-        }
+            return checkInternet()
+                .then(connected => {
+                    if(connected) {
+                        let payload = {dataPayload, name: pet.name};
+                        return petSnapShotApi
+                                .post(token, petId, payload);
+                    } else {
+                        throw { message: 'no internet connection' };   
+                    };
+                })
+                .then(res => {
+                    dataPayload = [];
+                    console.log('upload success');
+                })
+                .catch(err => console.error(err));
+        };
     } else {
         // check token
         if(!token) {
-            return userApi
-                        .signin(user)
+            return userApi.signin(user)
                         .then(res => { token = res.token; })
                         .catch(err => console.error(err));
         };
-        // next check for the pets id
         console.log('token', token);
+        // next check for the pets id
         if(!petId) {
             let qstring = `?name=${pet.name}&owner=${user.username}&animal=${pet.animal}`;
-            return petsApi
-                        .getQstring(token, qstring)
+            return petsApi.getQstring(token, qstring)
                         .then(res => {
                             if (res.length === 0) return petsApi.addPet(token, pet);
                             else petId = res[0]._id;
@@ -68,72 +76,14 @@ function main() {
                         .catch(err => console.error(err));
         };
         console.log('petId', petId);
-        // collect data and post to page
-        getData()
+        // collect data and push to datPayload array
+        return getData()
             .then(payload => {
-                console.log('from main', payload);
+                console.log('payload', payload);
                 dataPayload.push(payload);
-                // will need to do the check here
-                // payload.name = pet.name;
-                // return petSnapShotApi.post(token, petId, payload);
             })
-            // .then(res => {
-            //     console.log(res);
-            //     console.log('upload good!');
-            // })
             .catch(err => console.error(err));
     };
 };
 
 setInterval(main, 2000);
-
-
-// var x, y, z;
-// x = digitalAccelerometer.new_intp();
-// y = digitalAccelerometer.new_intp();
-// z = digitalAccelerometer.new_intp();
-
-
-// var outputStr;
-
-// var myInterval = setInterval(function() {
-//     myDigitalAccelerometer.getRawValues(x, y, z);
-//     outputStr = "Raw values: x = " + digitalAccelerometer.intp_value(x) +
-//     " y = " + digitalAccelerometer.intp_value(y) +
-//     " z = " + digitalAccelerometer.intp_value(z);
-//     console.log(outputStr);
-//     myDigitalAccelerometer.getAcceleration(ax, ay, az);
-//     outputStr = "Acceleration: x = "
-//         + roundNum(digitalAccelerometer.floatp_value(ax), 6)
-//         + "g y = " + roundNum(digitalAccelerometer.floatp_value(ay), 6)
-//         + "g z = " + roundNum(digitalAccelerometer.floatp_value(az), 6) + "g";
-//     console.log(outputStr);
-// }, 500);
-// // round off output to match C example, which has 6 decimal places
-
-
-
-// var LCD = require('jsupm_i2clcd');
-// var myLcd = new LCD.Jhd1313m1(3, 0x3E, 0x62);
-
-//myLcd.setCursor(0,0);
-
-// myLcd.setColor(107, 220, 247);
-//myLcd.write('Hello from PawsIO!');
-//myLcd.setCursor();
-
-//let i = -2;
-//function displayChange() {
-//    myLcd.setCursor(0,i);
-//    myLcd.write('Hello from PawsIO!');
-//
-//    i--;
-//    if(i === -4) {
-//        i = -2;
-//    }
-//}
-// myLcd.setCursor(0,0);
-// myLcd.write('Hello from PawsIO!');
-// myLcd.write('ello from PawsIO!');
-
-//setInterval(displayChange, 1000);

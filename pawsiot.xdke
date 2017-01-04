@@ -29,8 +29,8 @@
         "name": "LICENSE.md"
       },
       "main.js": {
-        "previousModTime": 1483489109858,
-        "modified": 1483489109858,
+        "previousModTime": 1483491552472,
+        "modified": 1483491552472,
         "seen": true,
         "name": "main.js"
       },
@@ -47,8 +47,8 @@
         "name": "pawsiot.xdk"
       },
       "pawsiot.xdke": {
-        "previousModTime": 1483489476309,
-        "modified": 1483489476309,
+        "previousModTime": 1483492260261,
+        "modified": 1483492260261,
         "seen": true,
         "name": "pawsiot.xdke"
       },
@@ -83,8 +83,8 @@
         "name": ".eslintrc"
       },
       "lib/get-data.js": {
-        "previousModTime": 1483489306622,
-        "modified": 1483489306622,
+        "previousModTime": 1483490596111,
+        "modified": 1483490596111,
         "seen": true,
         "name": "lib/get-data.js"
       },
@@ -131,40 +131,36 @@
         "name": "lib/setup/userinfo.js"
       },
       "lib/rotary.js": {
-        "previousModTime": 1483477556000,
-        "modified": 1483477556000,
+        "previousModTime": 1483490596111,
+        "modified": 1483490596111,
         "seen": true,
         "name": "lib/rotary.js"
       },
       "lib/accelerometer.js": {
-        "previousModTime": 1483489584213,
-        "modified": 1483489584213,
+        "previousModTime": 1483490596111,
+        "modified": 1483490596111,
         "seen": true,
         "name": "lib/accelerometer.js"
       },
       "lib/thermometer.js": {
-        "previousModTime": 1483487145481,
-        "modified": 1483487145481,
+        "previousModTime": 1483490596111,
+        "modified": 1483490596111,
         "seen": true,
         "name": "lib/thermometer.js"
       },
       "lib/helper/round-number.js": {
-        "previousModTime": 1483489430001,
-        "modified": 1483489430001,
+        "previousModTime": 1483490596111,
+        "modified": 1483490596111,
         "seen": true,
         "name": "lib/helper/round-number.js"
       },
       "lib/helper/vector-length.js": {
-        "previousModTime": 1483486336995,
-        "modified": 1483486336995,
+        "previousModTime": 1483490596111,
+        "modified": 1483490596111,
         "seen": true,
         "name": "lib/helper/vector-length.js"
       }
     },
-    "boardFileStatus": {
-      "lib/accelerometer.js": {
-        "previousModTime": 1483489593531
-      }
-    }
+    "boardFileStatus": {}
   }
 }
