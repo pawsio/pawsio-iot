@@ -29,8 +29,8 @@
         "name": "LICENSE.md"
       },
       "main.js": {
-        "previousModTime": 1483488342106,
-        "modified": 1483488342106,
+        "previousModTime": 1483489109858,
+        "modified": 1483489109858,
         "seen": true,
         "name": "main.js"
       },
@@ -47,8 +47,8 @@
         "name": "pawsiot.xdk"
       },
       "pawsiot.xdke": {
-        "previousModTime": 1483488330154,
-        "modified": 1483488330154,
+        "previousModTime": 1483489476309,
+        "modified": 1483489476309,
         "seen": true,
         "name": "pawsiot.xdke"
       },
@@ -83,8 +83,8 @@
         "name": ".eslintrc"
       },
       "lib/get-data.js": {
-        "previousModTime": 1483488036731,
-        "modified": 1483488036731,
+        "previousModTime": 1483489306622,
+        "modified": 1483489306622,
         "seen": true,
         "name": "lib/get-data.js"
       },
@@ -137,8 +137,8 @@
         "name": "lib/rotary.js"
       },
       "lib/accelerometer.js": {
-        "previousModTime": 1483487050615,
-        "modified": 1483487050615,
+        "previousModTime": 1483489584213,
+        "modified": 1483489584213,
         "seen": true,
         "name": "lib/accelerometer.js"
       },
@@ -149,8 +149,8 @@
         "name": "lib/thermometer.js"
       },
       "lib/helper/round-number.js": {
-        "previousModTime": 1483485862000,
-        "modified": 1483485862000,
+        "previousModTime": 1483489430001,
+        "modified": 1483489430001,
         "seen": true,
         "name": "lib/helper/round-number.js"
       },
@@ -162,23 +162,8 @@
       }
     },
     "boardFileStatus": {
-      "main.js": {
-        "previousModTime": 1483488351026
-      },
-      "lib/get-data.js": {
-        "previousModTime": 1483488351026
-      },
       "lib/accelerometer.js": {
-        "previousModTime": 1483488351026
-      },
-      "lib/thermometer.js": {
-        "previousModTime": 1483488351026
-      },
-      "lib/helper/round-number.js": {
-        "previousModTime": 1483488351026
-      },
-      "lib/helper/vector-length.js": {
-        "previousModTime": 1483488351026
+        "previousModTime": 1483489593531
       }
     }
   }

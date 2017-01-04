@@ -35,47 +35,46 @@ let dataPayload = [];
 function main() {
     // if rotary is negative and no payload, short-circuit
     // if rotary is negative but have payload, check later whether we push
-    if(rotary() < 0 || dataPayload.length === 0) return;
-
-    // check token
-    if(!token) {
-        return userApi
-                    .signin(user)
-                    .then(res => { token = res.token; })
-                    .catch(err => console.error(err));
+    if(rotary() < 0) {
+      if(dataPayload.length) return console.log('hey data!');   
+    } else {
+        // check token
+        if(!token) {
+            return userApi
+                        .signin(user)
+                        .then(res => { token = res.token; })
+                        .catch(err => console.error(err));
+        };
+        // next check for the pets id
+        console.log('token', token);
+        if(!petId) {
+            let qstring = `?name=${pet.name}&owner=${user.username}&animal=${pet.animal}`;
+            return petsApi
+                        .getQstring(token, qstring)
+                        .then(res => {
+                            if (res.length === 0) return petsApi.addPet(token, pet);
+                            else petId = res[0]._id; 
+                        })
+                        .catch(err => console.error(err));
+        };
+        console.log('petId', petId);
+        // collect data and post to page
+        getData()
+            .then(payload => {
+                console.log('from main', payload);
+                // will need to do the check here
+                // payload.name = pet.name;
+                // return petSnapShotApi.post(token, petId, payload);
+            })
+            // .then(res => {
+            //     console.log(res);
+            //     console.log('upload good!');
+            // })
+            .catch(err => console.error(err));  
     };
-    // next check for the pets id
-    console.log('token', token);
-    if(!petId) {
-        let qstring = `?name=${pet.name}&owner=${user.username}&animal=${pet.animal}`;
-        return petsApi
-                    .getQstring(token, qstring)
-                    .then(res => {
-                        if (res.length === 0) return petsApi.addPet(token, pet);
-                        else petId = res[0]._id; 
-                    })
-                    .catch(err => console.error(err));
-    };
-    console.log('petId', petId);
-    // collect data and post to page
-    getData()
-        .then(payload => {
-            console.log('from main', payload);
-            // will need to do the check here
-            // payload.name = pet.name;
-            // return petSnapShotApi.post(token, petId, payload);
-        })
-        // .then(res => {
-        //     console.log(res);
-        //     console.log('upload good!');
-        // })
-        .catch(err => console.error(err));
 };
 
 setInterval(main, 2000);
-
-
-
 
 
 // var x, y, z;
