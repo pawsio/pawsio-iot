@@ -24,11 +24,15 @@ const petSnapShotApi = require('./lib/api/pet-snapshots-api');
 const checkInternet = require('./lib/helper/check-internet');
 const getData = require('./lib/get-data')();
 const rotary = require('./lib/rotary')();
+const lcd = require('./lib/lcd')();
 
 // TODO: I think for our purposes we assume user already signed up with our service
 
 const user = require('./lib/setup/userinfo');
 const pet = require('./lib/setup/petinfo');
+let welcomeMessage = 'Pets IO!';
+lcd(0,0, welcomeMessage);
+
 let token = '';
 let petId = '';
 let dataPayload = [];
@@ -41,6 +45,7 @@ function main() {
     if(rotarCurr < 0) {
         // if you have data to send, send it and then empty array
         if(dataPayload.length) {
+            lcd(1,0,'data uploading');
             return checkInternet()
                 .then(connected => {
                     if(connected) {
@@ -53,6 +58,7 @@ function main() {
                 })
                 .then(res => {
                     dataPayload = [];
+                    lcd(1,0,'upload success');
                     console.log('upload success');
                 })
                 .catch(err => console.error(err));
@@ -60,18 +66,27 @@ function main() {
     } else {
         // check token
         if(!token) {
+            lcd(1,0,'getting token');
             return userApi.signin(user)
-                        .then(res => { token = res.token; })
+                        .then(res => { 
+                            lcd(1,0,'token received');
+                            token = res.token; 
+                        })
                         .catch(err => console.error(err));
         };
         console.log('token', token);
         // next check for the pets id
         if(!petId) {
             let qstring = `?name=${pet.name}&owner=${user.username}&animal=${pet.animal}`;
+            lcd(1,0,'getting pet');
             return petsApi.getQstring(token, qstring)
                         .then(res => {
-                            if (res.length === 0) return petsApi.addPet(token, pet);
-                            else petId = res[0]._id;
+                            if (res.length === 0) {
+                                lcd(1,0,'pet found');
+                                return petsApi.addPet(token, pet);
+                            } else { 
+                                petId = res[0]._id;
+                            };
                         })
                         .catch(err => console.error(err));
         };
@@ -79,6 +94,7 @@ function main() {
         // collect data and push to datPayload array
         return getData()
             .then(payload => {
+                lcd(1,0,'collecting data');
                 console.log('payload', payload);
                 dataPayload.push(payload);
             })
