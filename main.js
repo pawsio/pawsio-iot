@@ -45,7 +45,7 @@ function main() {
     if(rotarCurr < 0) {
         // if you have data to send, send it and then empty array
         if(dataPayload.length) {
-            lcd(0,1,'data uploading');
+            lcd(1,0,'data uploading');
             return checkInternet()
                 .then(connected => {
                     if(connected) {
@@ -58,7 +58,7 @@ function main() {
                 })
                 .then(res => {
                     dataPayload = [];
-                    lcd(0,1,'upload success');
+                    lcd(1,0,'upload success');
                     console.log('upload success');
                 })
                 .catch(err => console.error(err));
@@ -66,10 +66,10 @@ function main() {
     } else {
         // check token
         if(!token) {
-            lcd(0,1,'getting token');
+            lcd(1,0,'getting token');
             return userApi.signin(user)
                         .then(res => { 
-                            lcd(0,1,'token received');
+                            lcd(1,0,'token received');
                             token = res.token; 
                         })
                         .catch(err => console.error(err));
@@ -78,11 +78,11 @@ function main() {
         // next check for the pets id
         if(!petId) {
             let qstring = `?name=${pet.name}&owner=${user.username}&animal=${pet.animal}`;
-            lcd(0,1,'getting pet');
+            lcd(1,0,'getting pet');
             return petsApi.getQstring(token, qstring)
                         .then(res => {
                             if (res.length === 0) {
-                                lcd(0,1,'pet found');
+                                lcd(1,0,'pet found');
                                 return petsApi.addPet(token, pet);
                             } else { 
                                 petId = res[0]._id;
@@ -94,7 +94,7 @@ function main() {
         // collect data and push to datPayload array
         return getData()
             .then(payload => {
-                lcd(0,1, 'collecting data');
+                lcd(1,0,'collecting data');
                 console.log('payload', payload);
                 dataPayload.push(payload);
             })
