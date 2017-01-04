@@ -20,6 +20,7 @@ const mraa = require('mraa'); // eslint-disable-line
 const userApi = require('./lib/api/users-api');
 const petsApi = require('./lib/api/pets-api');
 const petSnapShotApi = require('./lib/api/pet-snapshots-api');
+const checkInternet = require('./lib/helper/check-internet');
 const getData = require('./lib/get-data')();
 const rotary = require('./lib/rotary')();
 
@@ -36,9 +37,17 @@ function main() {
     // if rotary is negative but have payload, check later whether we push
     if(rotary() < 0) {
         // if you have data to send, send it and then empty array
-        if(dataPayload.length) { 
-            return petSnapShotApi
-                .post(token, petId, { dataPayload, name: pet.name})
+        if(dataPayload.length) {
+            return checkInternet()
+                .then(connected => {
+                    if(connected) {
+                        let payload = {dataPayload, name: pet.name};
+                        return petSnapShotApi
+                                .post(token, petId, payload);
+                    } else {
+                        throw { message: 'no internet connection' };   
+                    };
+                })
                 .then(res => {
                     dataPayload = [];
                     console.log('upload success');
@@ -64,7 +73,7 @@ function main() {
                         .catch(err => console.error(err));
         };
         console.log('petId', petId);
-        // collect data and post to page
+        // collect data and push to datPayload array
         getData()
             .then(payload => {
                 console.log('payload', payload);
