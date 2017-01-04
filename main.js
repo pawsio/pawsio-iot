@@ -16,8 +16,7 @@
 
 'use strict';
 
-const mraa = require('mraa');
-const testApi = require('./lib/api/test-api');
+const mraa = require('mraa'); // eslint-disable-line
 const userApi = require('./lib/api/users-api');
 const petsApi = require('./lib/api/pets-api');
 const petSnapShotApi = require('./lib/api/pet-snapshots-api');
@@ -36,7 +35,18 @@ function main() {
     // if rotary is negative and no payload, short-circuit
     // if rotary is negative but have payload, check later whether we push
     if(rotary() < 0) {
-      if(dataPayload.length) return console.log('hey data!');   
+        if(dataPayload.length) {
+            return petSnapShotApi.post(token, petId, {
+                dataPayload,
+                name: pet.name
+            }).then(res => {
+                dataPayload = [];
+                console.log('res: ', res);
+                console.log('upload success');
+            }).catch(err => {
+                console.error(err);
+            });
+        }
     } else {
         // check token
         if(!token) {
@@ -53,7 +63,7 @@ function main() {
                         .getQstring(token, qstring)
                         .then(res => {
                             if (res.length === 0) return petsApi.addPet(token, pet);
-                            else petId = res[0]._id; 
+                            else petId = res[0]._id;
                         })
                         .catch(err => console.error(err));
         };
@@ -62,6 +72,7 @@ function main() {
         getData()
             .then(payload => {
                 console.log('from main', payload);
+                dataPayload.push(payload);
                 // will need to do the check here
                 // payload.name = pet.name;
                 // return petSnapShotApi.post(token, petId, payload);
@@ -70,7 +81,7 @@ function main() {
             //     console.log(res);
             //     console.log('upload good!');
             // })
-            .catch(err => console.error(err));  
+            .catch(err => console.error(err));
     };
 };
 
@@ -115,7 +126,7 @@ setInterval(main, 2000);
 //function displayChange() {
 //    myLcd.setCursor(0,i);
 //    myLcd.write('Hello from PawsIO!');
-//    
+//
 //    i--;
 //    if(i === -4) {
 //        i = -2;
