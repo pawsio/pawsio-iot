@@ -36,6 +36,7 @@ lcd(0,0, welcomeMessage);
 let token = '';
 let petId = '';
 let dataPayload = [];
+let uploading = false;
 
 function main() {
     // if rotary is negative and no payload, short-circuit
@@ -44,12 +45,13 @@ function main() {
     console.log(rotarCurr);
     if(rotarCurr < 0) {
         // if you have data to send, send it and then empty array
-        if(dataPayload.length) {
+        if(dataPayload.length && !uploading) {
             lcd(1,0,'data uploading');
             return checkInternet()
                 .then(connected => {
                     if(connected) {
                         let payload = {dataPayload, name: pet.name};
+                        uploading = true;
                         return petSnapShotApi
                                 .post(token, petId, payload);
                     } else {
@@ -58,10 +60,14 @@ function main() {
                 })
                 .then(res => {
                     dataPayload = [];
+                    uploading = false;
                     lcd(1,0,'upload success');
                     console.log('upload success');
                 })
-                .catch(err => console.error(err));
+                .catch(err => {
+                    uploading = false;
+                    console.error(err);
+                });
         };
     } else {
         // check token
