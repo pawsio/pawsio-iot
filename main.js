@@ -1,8 +1,9 @@
 /*
- * Blank IoT Node.js starter app.
+ * Paws IO Node.js starter app.
  *
- * Use this template to start an IoT Node.js app on any supported IoT board.
- * The target board must support Node.js. It is helpful if the board includes
+ * This code based on a Node.js template provided by Intel XDK and
+ * can be used on any Node.js supported IoT board.
+ * It is helpful if the board includes
  * support for I/O access via the MRAA and UPM libraries.
  *
  * https://software.intel.com/en-us/xdk/docs/lp-xdk-iot
@@ -35,7 +36,9 @@ let dataPayload = [];
 function main() {
     // if rotary is negative and no payload, short-circuit
     // if rotary is negative but have payload, check later whether we push
-    if(rotary() < 0) {
+    let rotarCurr = rotary();
+    console.log(rotarCurr);
+    if(rotarCurr < 0) {
         // if you have data to send, send it and then empty array
         if(dataPayload.length) {
             return checkInternet()
@@ -74,7 +77,7 @@ function main() {
         };
         console.log('petId', petId);
         // collect data and push to datPayload array
-        getData()
+        return getData()
             .then(payload => {
                 console.log('payload', payload);
                 dataPayload.push(payload);
@@ -84,28 +87,3 @@ function main() {
 };
 
 setInterval(main, 2000);
-
-// var LCD = require('jsupm_i2clcd');
-// var myLcd = new LCD.Jhd1313m1(3, 0x3E, 0x62);
-
-//myLcd.setCursor(0,0);
-
-// myLcd.setColor(107, 220, 247);
-//myLcd.write('Hello from PawsIO!');
-//myLcd.setCursor();
-
-//let i = -2;
-//function displayChange() {
-//    myLcd.setCursor(0,i);
-//    myLcd.write('Hello from PawsIO!');
-//
-//    i--;
-//    if(i === -4) {
-//        i = -2;
-//    }
-//}
-// myLcd.setCursor(0,0);
-// myLcd.write('Hello from PawsIO!');
-// myLcd.write('ello from PawsIO!');
-
-//setInterval(displayChange, 1000);
