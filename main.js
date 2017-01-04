@@ -35,32 +35,28 @@ function main() {
     // if rotary is negative and no payload, short-circuit
     // if rotary is negative but have payload, check later whether we push
     if(rotary() < 0) {
-        if(dataPayload.length) {
-            return petSnapShotApi.post(token, petId, {
-                dataPayload,
-                name: pet.name
-            }).then(res => {
-                dataPayload = [];
-                console.log('res: ', res);
-                console.log('upload success');
-            }).catch(err => {
-                console.error(err);
-            });
-        }
+        // if you have data to send, send it and then empty array
+        if(dataPayload.length) { 
+            return petSnapShotApi
+                .post(token, petId, { dataPayload, name: pet.name})
+                .then(res => {
+                    dataPayload = [];
+                    console.log('upload success');
+                })
+                .catch(err => console.error(err));
+        };
     } else {
         // check token
         if(!token) {
-            return userApi
-                        .signin(user)
+            return userApi.signin(user)
                         .then(res => { token = res.token; })
                         .catch(err => console.error(err));
         };
-        // next check for the pets id
         console.log('token', token);
+        // next check for the pets id
         if(!petId) {
             let qstring = `?name=${pet.name}&owner=${user.username}&animal=${pet.animal}`;
-            return petsApi
-                        .getQstring(token, qstring)
+            return petsApi.getQstring(token, qstring)
                         .then(res => {
                             if (res.length === 0) return petsApi.addPet(token, pet);
                             else petId = res[0]._id;
@@ -71,47 +67,14 @@ function main() {
         // collect data and post to page
         getData()
             .then(payload => {
-                console.log('from main', payload);
+                console.log('payload', payload);
                 dataPayload.push(payload);
-                // will need to do the check here
-                // payload.name = pet.name;
-                // return petSnapShotApi.post(token, petId, payload);
             })
-            // .then(res => {
-            //     console.log(res);
-            //     console.log('upload good!');
-            // })
             .catch(err => console.error(err));
     };
 };
 
 setInterval(main, 2000);
-
-
-// var x, y, z;
-// x = digitalAccelerometer.new_intp();
-// y = digitalAccelerometer.new_intp();
-// z = digitalAccelerometer.new_intp();
-
-
-// var outputStr;
-
-// var myInterval = setInterval(function() {
-//     myDigitalAccelerometer.getRawValues(x, y, z);
-//     outputStr = "Raw values: x = " + digitalAccelerometer.intp_value(x) +
-//     " y = " + digitalAccelerometer.intp_value(y) +
-//     " z = " + digitalAccelerometer.intp_value(z);
-//     console.log(outputStr);
-//     myDigitalAccelerometer.getAcceleration(ax, ay, az);
-//     outputStr = "Acceleration: x = "
-//         + roundNum(digitalAccelerometer.floatp_value(ax), 6)
-//         + "g y = " + roundNum(digitalAccelerometer.floatp_value(ay), 6)
-//         + "g z = " + roundNum(digitalAccelerometer.floatp_value(az), 6) + "g";
-//     console.log(outputStr);
-// }, 500);
-// // round off output to match C example, which has 6 decimal places
-
-
 
 // var LCD = require('jsupm_i2clcd');
 // var myLcd = new LCD.Jhd1313m1(3, 0x3E, 0x62);
