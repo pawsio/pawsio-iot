@@ -96,7 +96,7 @@ module.exports = {
 };
 ```
 These files will be prevented from uploading to git via the .gitignore file. The userinfo contains your unique user info attached
-to your [PawsIO](https://www.herokuapp.com) account and the petinfo is related to the specific pet you currently are monitoring when running the device.
+to your [PawsIO](https://pawsio.herokuapp.com) account and the petinfo is related to the specific pet you currently are monitoring when running the device.
 
 After files are created, upload them to your IOT device via the Intel® XDK. Use the rotary angle sensor and turn it completely clockwise to start recording.
 To stop recording, turn the rotary sensory completely counter-clockwise and the data will be pushed to our database as soon as an internet connection is found.
