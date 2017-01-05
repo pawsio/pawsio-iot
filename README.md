@@ -36,3 +36,4 @@ Tested IoT Node.js Platforms
 * [Intel® Galileo Board](http://intel.com/galileo)
 * [Intel® Edison Development Platform](http://intel.com/edison)
 * [Intel® Joule™ 570x Developer Kit](http://intel.com/joule)
+
