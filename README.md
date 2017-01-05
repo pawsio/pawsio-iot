@@ -1,5 +1,10 @@
 Intel® XDK IoT PawsIO Node.js\* Project
 ===========================================
+
+<div align="center">
+  <img src="https://s-media-cache-ak0.pinimg.com/564x/06/90/1d/06901d858bc68e61f0b23b123ee0db35.jpg">
+</div>
+
 See [LICENSE.md](LICENSE.md) for license terms and conditions.
 
 This sample application is distributed as part of the
@@ -58,11 +63,18 @@ Getting Started
     <img src="http://wiki.seeedstudio.com/images/thumb/a/a6/Base_Shield_v2_-1.png/257px-Base_Shield_v2_-1.png">
 </div>
 
-    * Temperature Sensor - A0
-    * Rotary Angle Sensor - A1
-    * Sound Sensor - A2
-    * 3-Axis Accelerometer - I2C0 (furthest to the left in above picture)
-    * LCD RGB Backlight - I2C3 (furthest to the right in above picture)
+* Hook the following Sensors to the given ports as marked in the below table
+
+| Sensor               |      Port       |
+| -------------------- | --------------- |
+| Temperature Sensor   | A0              |
+| Rotary Angle Sensor  | A1              |
+| Sound Sensor         | A2              |
+| 3-Axis Accelerometer | I2C0\*          |
+| LCD RGB Backlight    | I2C3\*\*        |
+
+\* far left I2C port
+\*\* far right I2C port
 
 Running the Code
 ----------------
