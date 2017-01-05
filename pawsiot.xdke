@@ -11,8 +11,8 @@
   "iot-tab": {
     "fileStatus": {
       ".gitignore": {
-        "previousModTime": 1483336740086,
-        "modified": 1483336740086,
+        "previousModTime": 1483579946704,
+        "modified": 1483579946704,
         "seen": true,
         "name": ".gitignore"
       },
@@ -23,20 +23,20 @@
         "name": "icon.png"
       },
       "LICENSE.md": {
-        "previousModTime": 1483161186923,
-        "modified": 1483161186923,
+        "previousModTime": 1483579946704,
+        "modified": 1483579946704,
         "seen": true,
         "name": "LICENSE.md"
       },
       "main.js": {
-        "previousModTime": 1483554581693,
-        "modified": 1483554581693,
+        "previousModTime": 1483579946700,
+        "modified": 1483579946700,
         "seen": true,
         "name": "main.js"
       },
       "package.json": {
-        "previousModTime": 1483254617039,
-        "modified": 1483254617039,
+        "previousModTime": 1483579946700,
+        "modified": 1483579946700,
         "seen": true,
         "name": "package.json"
       },
@@ -47,14 +47,14 @@
         "name": "pawsiot.xdk"
       },
       "pawsiot.xdke": {
-        "previousModTime": 1483554771054,
-        "modified": 1483554771054,
+        "previousModTime": 1483580867914,
+        "modified": 1483580867914,
         "seen": true,
         "name": "pawsiot.xdke"
       },
       "README.md": {
-        "previousModTime": 1483336924223,
-        "modified": 1483336924223,
+        "previousModTime": 1483579946708,
+        "modified": 1483579946708,
         "seen": true,
         "name": "README.md"
       },
@@ -71,183 +71,117 @@
         "name": "lib/test-api.js"
       },
       ".env": {
-        "previousModTime": 1483249431499,
-        "modified": 1483249431499,
+        "previousModTime": 1483579946704,
+        "modified": 1483579946704,
         "seen": true,
         "name": ".env"
       },
       ".eslintrc": {
-        "previousModTime": 1483254616991,
-        "modified": 1483254616991,
+        "previousModTime": 1483579946704,
+        "modified": 1483579946704,
         "seen": true,
         "name": ".eslintrc"
       },
       "lib/get-data.js": {
-        "previousModTime": 1483550066090,
-        "modified": 1483550066090,
+        "previousModTime": 1483579946700,
+        "modified": 1483579946700,
         "seen": true,
         "name": "lib/get-data.js"
       },
       "lib/api/pets-api.js": {
-        "previousModTime": 1483336740086,
-        "modified": 1483336740086,
+        "previousModTime": 1483579946700,
+        "modified": 1483579946700,
         "seen": true,
         "name": "lib/api/pets-api.js"
       },
       "lib/api/pet-snapshots-api.js": {
-        "previousModTime": 1483336740086,
-        "modified": 1483336740086,
+        "previousModTime": 1483579946700,
+        "modified": 1483579946700,
         "seen": true,
         "name": "lib/api/pet-snapshots-api.js"
       },
       "lib/api/test-api.js": {
-        "previousModTime": 1483336740086,
-        "modified": 1483336740086,
+        "previousModTime": 1483579946700,
+        "modified": 1483579946700,
         "seen": true,
         "name": "lib/api/test-api.js"
       },
       "lib/api/users-api.js": {
-        "previousModTime": 1483336740086,
-        "modified": 1483336740086,
+        "previousModTime": 1483579946700,
+        "modified": 1483579946700,
         "seen": true,
         "name": "lib/api/users-api.js"
       },
       "lib/helper/convert-temp.js": {
-        "previousModTime": 1483336740090,
-        "modified": 1483336740090,
+        "previousModTime": 1483579946700,
+        "modified": 1483579946700,
         "seen": true,
         "name": "lib/helper/convert-temp.js"
       },
       "lib/setup/petinfo.js": {
-        "previousModTime": 1483323607641,
-        "modified": 1483323607641,
+        "previousModTime": 1483579946708,
+        "modified": 1483579946708,
         "seen": true,
         "name": "lib/setup/petinfo.js"
       },
       "lib/setup/userinfo.js": {
-        "previousModTime": 1483323607641,
-        "modified": 1483323607641,
+        "previousModTime": 1483579946708,
+        "modified": 1483579946708,
         "seen": true,
         "name": "lib/setup/userinfo.js"
       },
       "lib/rotary.js": {
-        "previousModTime": 1483550066090,
-        "modified": 1483550066090,
+        "previousModTime": 1483579946704,
+        "modified": 1483579946704,
         "seen": true,
         "name": "lib/rotary.js"
       },
       "lib/accelerometer.js": {
-        "previousModTime": 1483490596111,
-        "modified": 1483490596111,
+        "previousModTime": 1483579946700,
+        "modified": 1483579946700,
         "seen": true,
         "name": "lib/accelerometer.js"
       },
       "lib/thermometer.js": {
-        "previousModTime": 1483490596111,
-        "modified": 1483490596111,
+        "previousModTime": 1483579946704,
+        "modified": 1483579946704,
         "seen": true,
         "name": "lib/thermometer.js"
       },
       "lib/helper/round-number.js": {
-        "previousModTime": 1483490596111,
-        "modified": 1483490596111,
+        "previousModTime": 1483579946700,
+        "modified": 1483579946700,
         "seen": true,
         "name": "lib/helper/round-number.js"
       },
       "lib/helper/vector-length.js": {
-        "previousModTime": 1483490596111,
-        "modified": 1483490596111,
+        "previousModTime": 1483580906279,
+        "modified": 1483580906279,
         "seen": true,
         "name": "lib/helper/vector-length.js"
       },
       "lib/lcd.js": {
-        "previousModTime": 1483551423590,
-        "modified": 1483551423590,
+        "previousModTime": 1483579946700,
+        "modified": 1483579946700,
         "seen": true,
         "name": "lib/lcd.js"
       },
       "lib/helper/check-internet.js": {
-        "previousModTime": 1483515209045,
-        "modified": 1483515209045,
+        "previousModTime": 1483579946700,
+        "modified": 1483579946700,
         "seen": true,
         "name": "lib/helper/check-internet.js"
       },
       "lib/microphone.js": {
-        "previousModTime": 1483550066090,
-        "modified": 1483550066090,
+        "previousModTime": 1483579946704,
+        "modified": 1483579946704,
         "seen": true,
         "name": "lib/microphone.js"
       }
     },
     "boardFileStatus": {
-      "icon.png": {
-        "previousModTime": 1483555060617
-      },
-      "LICENSE.md": {
-        "previousModTime": 1483555060617
-      },
-      "main.js": {
-        "previousModTime": 1483555060617
-      },
-      "package.json": {
-        "previousModTime": 1483555060617
-      },
-      "README.md": {
-        "previousModTime": 1483555060617
-      },
-      "xdk/project-info.json": {
-        "previousModTime": 1483555060617
-      },
-      "lib/test-api.js": {
-        "previousModTime": 1483555060617
-      },
-      "lib/get-data.js": {
-        "previousModTime": 1483555060617
-      },
-      "lib/api/pets-api.js": {
-        "previousModTime": 1483555060617
-      },
-      "lib/api/pet-snapshots-api.js": {
-        "previousModTime": 1483555060617
-      },
-      "lib/api/test-api.js": {
-        "previousModTime": 1483555060617
-      },
-      "lib/api/users-api.js": {
-        "previousModTime": 1483555060617
-      },
-      "lib/helper/convert-temp.js": {
-        "previousModTime": 1483555060617
-      },
-      "lib/setup/petinfo.js": {
-        "previousModTime": 1483555060617
-      },
-      "lib/setup/userinfo.js": {
-        "previousModTime": 1483555060617
-      },
-      "lib/rotary.js": {
-        "previousModTime": 1483555060617
-      },
-      "lib/accelerometer.js": {
-        "previousModTime": 1483555060617
-      },
-      "lib/thermometer.js": {
-        "previousModTime": 1483555060617
-      },
-      "lib/helper/round-number.js": {
-        "previousModTime": 1483555060617
-      },
       "lib/helper/vector-length.js": {
-        "previousModTime": 1483555060617
-      },
-      "lib/lcd.js": {
-        "previousModTime": 1483555060617
-      },
-      "lib/helper/check-internet.js": {
-        "previousModTime": 1483555060617
-      },
-      "lib/microphone.js": {
-        "previousModTime": 1483555060617
+        "previousModTime": 1483580911405
       }
     }
   }
