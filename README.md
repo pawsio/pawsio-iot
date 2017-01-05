@@ -45,7 +45,7 @@ Getting Started
     * [Rotary Angle Sensor](https://www.seeedstudio.com/Grove-Rotary-Angle-Sensor%28P%29-p-1242.html)
     * [3-Axis Accelerometer](https://www.seeedstudio.com/Grove-3-Axis-Digital-Accelerometer(%C2%B11.5g)-p-765.html)
 
-* Hooking up your device:
+* Hooking up your sensors to your Grove Shield interface:
 
 <div align="center">
     <img src="http://wiki.seeedstudio.com/images/thumb/a/a6/Base_Shield_v2_-1.png/257px-Base_Shield_v2_-1.png">
@@ -60,7 +60,8 @@ Getting Started
 Running the Code
 ----------------
 One you have all things connected, make sure to have your Intel® XDK IOT Edition properly installed and prepared
-to upload code by following along with [this guide](https://software.intel.com/en-us/getting-started-with-xdk-and-iot).
+to upload code by following along with [this guide](https://software.intel.com/en-us/getting-started-with-xdk-and-iot) and 
+[this guide](https://software.intel.com/en-us/blogs/2015/05/29/grove-starter-kit-with-intel-galileo-gen-2-getting-started-0).
 Once the device has an wifi connection, we need to have two additional setup files.
 
 Run the following command in your terminal:
