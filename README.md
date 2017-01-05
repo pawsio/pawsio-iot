@@ -11,6 +11,13 @@ For help getting started developing applications with the
 Intel XDK, please start with
 [the Intel XDK documentation](https://software.intel.com/en-us/xdk/docs).
 
+Authors
+-------
+[Caitlin Araldi](https://github.com/caraldi),
+[Chris Bruner](https://github.com/QuantumArchive),
+[Nathan Hugon](https://github.com/nthugon),
+[Michelle Srikhundonr](https://github.com/michellesri)
+
 App Overview
 ------------
 This repo contains all necessary files needed to utilize the [PawsIO](https://pawsio.herokuapp.com) app web app.
