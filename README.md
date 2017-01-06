@@ -65,6 +65,8 @@ Getting Started
 
 * Hook the following Sensors to the given ports as marked in the below table
 
+<center>
+
 | Sensor               |      Port       |
 | -------------------- | --------------- |
 | Temperature Sensor   | A0              |
@@ -73,8 +75,10 @@ Getting Started
 | 3-Axis Accelerometer | I2C0\*          |
 | LCD RGB Backlight    | I2C3\*\*        |
 
-\* far left I2C port
-\*\* far right I2C port
+</center>
+
+<p> * far left I2C port </p>
+<p> ** far right I2C port </p>
 
 Running the Code
 ----------------
