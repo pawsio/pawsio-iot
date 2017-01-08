@@ -1,0 +1,22 @@
+{
+  "name": "xdk-iot-pawsiot",
+  "description": "Intel® XDK IoT Blank Node.js Template",
+  "version": "0.1.0",
+  "main": "main.js",
+  "scripts": {
+    "lint": "eslint .",
+    "setup": "cd ./lib && mkdir setup && cd ./setup && touch petinfo.js userinfo.js"
+  },
+  "engines": {
+    "node": ">=6.8.0"
+  },
+  "license": "BSD-3-Clause",
+  "private": true,
+  "dependencies": {
+    "superagent": "^3.3.1",
+    "xmlhttprequest": "^1.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.12.2"
+  }
+}
