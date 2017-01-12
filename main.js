@@ -43,6 +43,8 @@ function main() {
     // if rotary is negative but have payload, check later whether we push
     let rotarCurr = rotary();
     console.log(rotarCurr);
+
+    // split the logic into functions and make the conditional workflow obvious
     if(rotarCurr < 0) {
         // if you have data to send, send it and then empty array
         if(dataPayload.length && !uploading) {
@@ -58,7 +60,7 @@ function main() {
                         throw { message: 'no internet connection' };   
                     };
                 })
-                .then(res => {
+                .then(() => {
                     dataPayload = [];
                     uploading = false;
                     lcd(1,0,'upload success');
