@@ -26,87 +26,86 @@ const getData = require('./lib/get-data')();
 const rotary = require('./lib/rotary')();
 const lcd = require('./lib/lcd')();
 
-// TODO: I think for our purposes we assume user already signed up with our service
-
 const user = require('./lib/setup/userinfo');
 const pet = require('./lib/setup/petinfo');
-let welcomeMessage = 'Pets IO!';
-lcd(0,0, welcomeMessage);
 
 let token = '';
 let petId = '';
 let dataPayload = [];
 let uploading = false;
 
+let welcomeMessage = 'Pets IO!';
+lcd(0,0, welcomeMessage);
+
+function uploadData() {
+    lcd(1,0,'data uploading');
+    checkInternet().then(connected => {
+        if(connected) {
+            let name = pet.name;
+            let payload = {dataPayload, name};
+            uploading = true;
+            return petSnapShotApi.post(token, petId, payload);
+        } else throw { message: 'no internet connection' };   
+    })
+    .then(res => {
+        dataPayload = [];
+        uploading = false;
+        lcd(1,0,'upload success');
+        lcd(1,0, `id is ${res._id}`);
+    })
+    .catch(err => {
+        uploading = false;
+        console.error(err);
+    });
+};
+
+function getToken() {
+    lcd(1,0,'getting token');
+    return userApi.signin(user)
+            .then(res => { 
+                lcd(1,0,'token received');
+                token = res.token; 
+            })
+            .catch(err => console.error(err));
+};
+
+function getPetId() {
+    lcd(1,0,'getting pet');
+    let qstring = `?name=${pet.name}&owner=${user.username}&animal=${pet.animal}`;
+    petsApi.getQstring(token, qstring)
+        .then(res => {
+            if (res.length === 0) {
+                lcd(1,0,'pet found');
+                return petsApi.addPet(token, pet);
+            } else { 
+                petId = res[0]._id;
+            };
+        })
+        .catch(err => console.error(err));
+};
+
+function collectData() {
+    lcd(1,0,'collecting data');
+    return getData().then(payload => dataPayload.push(payload))
+            .catch(err => console.error(err));
+};
+
 function main() {
-    // if rotary is negative and no payload, short-circuit
-    // if rotary is negative but have payload, check later whether we push
     let rotarCurr = rotary();
     console.log(rotarCurr);
     if(rotarCurr < 0) {
         // if you have data to send, send it and then empty array
-        if(dataPayload.length && !uploading) {
-            lcd(1,0,'data uploading');
-            return checkInternet()
-                .then(connected => {
-                    if(connected) {
-                        let payload = {dataPayload, name: pet.name};
-                        uploading = true;
-                        return petSnapShotApi
-                                .post(token, petId, payload);
-                    } else {
-                        throw { message: 'no internet connection' };   
-                    };
-                })
-                .then(res => {
-                    dataPayload = [];
-                    uploading = false;
-                    lcd(1,0,'upload success');
-                    console.log('upload success');
-                })
-                .catch(err => {
-                    uploading = false;
-                    console.error(err);
-                });
-        };
-    } else {
-        // check token
-        if(!token) {
-            lcd(1,0,'getting token');
-            return userApi.signin(user)
-                        .then(res => { 
-                            lcd(1,0,'token received');
-                            token = res.token; 
-                        })
-                        .catch(err => console.error(err));
-        };
-        console.log('token', token);
-        // next check for the pets id
-        if(!petId) {
-            let qstring = `?name=${pet.name}&owner=${user.username}&animal=${pet.animal}`;
-            lcd(1,0,'getting pet');
-            return petsApi.getQstring(token, qstring)
-                        .then(res => {
-                            if (res.length === 0) {
-                                lcd(1,0,'pet found');
-                                return petsApi.addPet(token, pet);
-                            } else { 
-                                petId = res[0]._id;
-                            };
-                        })
-                        .catch(err => console.error(err));
-        };
-        console.log('petId', petId);
-        // collect data and push to datPayload array
-        return getData()
-            .then(payload => {
-                lcd(1,0,'collecting data');
-                console.log('payload', payload);
-                dataPayload.push(payload);
-            })
-            .catch(err => console.error(err));
+        if(dataPayload.length && !uploading) return uploadData();
+        else return;
     };
+    // check token
+    if(!token) return getToken();
+    console.log('token', token);
+    // next check for the pets id
+    if(!petId) return getPetId();
+    console.log('petId', petId);
+    // collect data and push to datPayload array
+    return collectData();
 };
 
 setInterval(main, 2000);
-
